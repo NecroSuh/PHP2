@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+	<head>
+		<title>HTML Form</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<h1>Form 만들기</h1>
+		<form action="formproc.php" method="post" id="myform">
+		<table>
+			<tr>
+				<td>아이디 : </td>
+				<td><input type ="text" name="uid" value="lemon"></td>
+			</tr>
+			<tr>
+				<td>비밀번호 : </td>
+				<td><input type ="password" name="pwd"></td>
+			</tr>
+			<tr>
+				<td>이름 : </td>
+				<td><input type="text" name="uname" hidden value="LEMON"></td>
+			</tr>
+			<tr>
+				<td>생년월일 : </td>
+				<td><input type="week" name="birth" placeholder="19000101"></td>
+			</tr>
+			<tr>
+				<td>등급 : </td>
+				<td><input type="radio" name="grade" checked value="basic">초급자<br>
+				<input type="radio" name="grade" value="med">중급자<br>
+				<input type="radio" name="grade" value="adv">고급자<br>
+				</td>
+			</tr>
+			<tr>
+				<td>스킬 : </td>
+				<td><input type="checkbox" name="skill[]" value="cprog">C Programming<br>
+				<input type="checkbox" name="skill[]" value="cpp">C++ Programming<br>
+				<input type="checkbox" name="skill[]" value="java">JAVA Programming<br>
+				</td>
+			</tr>
+			<tr>
+				<td>통신사 : </td>
+				<td>
+					<select name="telecom">
+						<option value="kt">KT</option>
+						<option value="skt">SKT</option>
+						<option value="lgt">LGT</option>
+					</select>
+				</td>
+			</tr>
+		</table><br>
+			<input type="submit" value="확인">
+			<input type="reset" value="취소">
+			<button>확인</button>
+			<input type="button" value="SUBMIT" 
+				onclick="document.getElementById('myform').submit()">
+		</form>
+	</body>
+</html>
