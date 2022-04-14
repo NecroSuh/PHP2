@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+	<head>
+		<title>도서등록</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<h1>도서등록</h1>
+		<form action="addbook.php" method="post">
+		<table>
+			<tr>
+				<td>Book ID: </td>
+				<td><input type="text" name="bid"></td>
+			</tr>
+			<tr>
+				<td>Book Title: </td>
+				<td><input type="text" name="title"></td>
+			</tr>
+			<tr>
+				<td>Author: </td>
+				<td><input type="text" name="author"></td>
+			</tr>
+			<tr>
+				<td>Published date: </td>
+				<td><input type="date" name="pdate"></td>
+			</tr>
+			<tr>
+				<td>Price: </td>
+				<td><input type="text" name="price"></td>
+			</tr>
+		</table>
+		<br>
+			<input type="submit" value="도서등록">
+			<input type="reset" value="재입력">
+		</form>
+	</body>
+</html>
