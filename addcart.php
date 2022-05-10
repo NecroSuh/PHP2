@@ -67,22 +67,24 @@
      </style>
 </head>
 <body>
-<?php
-	#1. pizzalist.php에서 전달되는 데이터 가져오기
+	<?php
+	#1.pizzalist.php에서 전달되는 데이터 가져오기
 	$pizza = $_GET['pizza'];
 	$lprice = $_GET['lprice'];
 	$sprice = $_GET['sprice'];
-?>
+	?>
 	<div class="bg-img">
 	<div class="container">
-	<form action="addcartproc.php" method="post">
-		<input type="text" name="pizza" value="<?=$pizza?>" readonly><br>
-		<input type="radio" name="size" value="L" checked>Large(<?=$lprice?>)
-		<input type="radio" name="size" value="S">Small(<?=$sprice?>)<br>
-		<input type="number" name="qty" value="1" min="1" max="20">
-		<br>
-		<button type="submit" class="btn">Add to cart</button>
-	</form>
+		<form action="addcartproc.php" method="post">
+			<input type="text" name="pizza" value="<?=$pizza?>" readonly><br>
+			<input type="radio" name="size" value="L" checked>Large(<?=$lprice?>)
+			<input type="radio" name="size" value="S">Small(<?=$sprice?>)<br>
+			<input type="text" name="lprice" value="<?=$lprice?>" hidden>
+			<input type="text" name="sprice" value="<?=$sprice?>" hidden>
+			<input type="number" name="qty" value="1" min="1" max="20">
+			<br>
+			<button type="submit" class="btn">Add to cart</button>
+		</form>
 	</div>
 	</div>
 </body>
