@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>  
+    <meta charset="utf-8">
+    <script>
+    window.onload = function () {
+        var dataPoints = [];
+        var chart = new CanvasJS.Chart("chartContainer", {
+			theme: "light1",
+            animationEnabled: true,
+            exportEnabled: true,
+            title:{
+                text: "로또번호 출현 횟수"
+            },
+            axisY: {
+                title: "출현횟수",
+                includeZero: false
+            },
+            axisX:{
+                title: "로또번호",
+                interval: 1
+            },
+            data: [{
+                type: "scatter",
+                toolTipContent: "{y}",
+                dataPoints: dataPoints,
+                indexLabel: "{y}"
+            }]
+        });
+        $.get("http://localhost/php1/lotto/lottocount2022.csv", getDataPointsFromCSV);
+        //CSV Format
+        //Year,Volume
+        function getDataPointsFromCSV(csv) {
+            var csvLines = points = [];
+            csvLines = csv.split(/[\r?\n|\r|\n]+/);
+            for (var i = 0; i < csvLines.length; i++) {
+                if (csvLines[i].length > 0) {
+                    points = csvLines[i].split(",");
+                    dataPoints.push({
+                        label: points[0],
+                        y: parseFloat(points[1])
+                    });
+                }
+            }
+            chart.render();
+        }
+    }
+    </script>
+</head>
+<body>
+    <div id="chartContainer" style="height: 600px; width: 100%;"></div>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+
